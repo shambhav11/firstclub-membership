@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: membership-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/membership}
+    username: ${DB_USERNAME:membership}
+    password: ${DB_PASSWORD:membership}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  h2:
+    console:
+      enabled: false
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+server:
+  port: 8080
+
+membership:
+  jobs:
+    maintenance-delay-ms: ${MEMBERSHIP_MAINTENANCE_DELAY_MS:60000}
+    auto-renew-lead-time: ${MEMBERSHIP_AUTO_RENEW_LEAD_TIME:PT24H}
+    payment-expiry: ${MEMBERSHIP_PAYMENT_EXPIRY:PT15M}
+    criteria-cron: ${MEMBERSHIP_CRITERIA_CRON:0 0 2 1 * *}
