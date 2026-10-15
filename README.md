@@ -405,3 +405,5 @@ archive requests are idempotent and do not extend the recovery window.
    payment expiry, locking, retries, refunds, and criteria scheduling.
 8. Add deployment configuration, secret management, PostgreSQL backup/restore procedures, and a
    migration rollout strategy.
+9. Add cache support for perks by tier ID and the active tier ID by user ID, with invalidation on
+   tier-perk mapping and membership lifecycle changes.
